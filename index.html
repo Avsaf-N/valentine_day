@@ -10,16 +10,16 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family: 'Segoe UI', sans-serif;
+  font-family:'Segoe UI', sans-serif;
 }
 
 body{
   background: linear-gradient(135deg,#0f0c29,#302b63,#24243e);
-  height:100vh;
+  min-height:100vh;
   display:flex;
   justify-content:center;
-  align-items:center;
-  overflow:hidden;
+  align-items:flex-start;
+  padding:40px 0;
   color:white;
 }
 
@@ -37,19 +37,19 @@ body{
   text-align:center;
   box-shadow:0 0 40px rgba(0,0,0,0.5);
   animation: fadeIn 1.5s ease forwards;
+  max-height:80vh;
+  overflow-y:auto;
 }
 
 h1{
   font-size:28px;
   margin-bottom:20px;
-  letter-spacing:1px;
 }
 
 #message{
   margin-top:20px;
   line-height:1.8;
   font-size:17px;
-  min-height:200px;
   white-space:pre-line;
 }
 
@@ -83,10 +83,11 @@ button:hover{
 }
 
 .heart{
-  position:absolute;
-  bottom:-10px;
+  position:fixed;
+  bottom:-20px;
   color:#ff4d6d;
   animation: floatUp 6s linear infinite;
+  pointer-events:none;
 }
 
 @keyframes floatUp{
@@ -112,7 +113,7 @@ button:hover{
 </div>
 
 <script>
-const correctPassword = "kashu143"; // yaha password change kar sakte ho
+const correctPassword = "kashu143"; // change if needed
 
 function checkPassword(){
   const input = document.getElementById("passwordInput").value;
@@ -134,24 +135,24 @@ Kashu…
 Main tujhe 5 alag looks mein dekha hai,
 aur har baar main aur zyada flat ho gaya.
 
-1️⃣ Jab tum mere new furniture showroom par aaye the —
-   us din tumhari simplicity hi sabse classy thi.
+1️⃣ New furniture showroom wala look —
+us din tumhari simplicity hi sabse classy thi.
 
-2️⃣ Tumhare family photo wala look —
-   calm, composed, aur bilkul graceful.
+2️⃣ Family photo wala look —
+calm, composed, aur graceful.
 
-3️⃣ Jab tumne new car delivery li —
-   proud smile… woh confidence unforgettable tha.
+3️⃣ New car delivery wala look —
+proud smile aur confidence unforgettable tha.
 
 4️⃣ Adnan ki shaadi mein,
-   jab tum Adnan ki wife ke saath photo mein thi —
-   traditional look mein tum alag hi level par thi.
+jab tum Adnan ki wife ke saath photo mein thi —
+traditional look mein tum alag hi level par thi.
 
 5️⃣ Aur sabse recent…
-   jab tum hamare ghar aayi thi,
-   kitchen ki window se bahar dekhte hue
-   halki si awaaz mein gana ga rahi thi —
-   woh moment… bas real aur perfect tha.
+hamare ghar par,
+kitchen ki window se bahar dekhte hue
+halki si awaaz mein gana ga rahi thi —
+woh moment bilkul real aur perfect tha.
 
 Rose maine Nani ke through diya tha…
 chhota gesture tha,
@@ -172,6 +173,7 @@ Happy Valentine’s Day ❤️`;
       messageBox.innerHTML += text.charAt(i);
       i++;
       setTimeout(typeWriter, speed);
+      messageBox.scrollTop = messageBox.scrollHeight;
     }
   }
 
@@ -187,7 +189,7 @@ function startHearts(){
     heart.style.fontSize = Math.random() * 20 + 15 + "px";
     document.body.appendChild(heart);
     setTimeout(()=>{heart.remove();},6000);
-  },500);
+  },600);
 }
 </script>
 
