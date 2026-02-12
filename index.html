@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For Kashu ❤️</title>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #000000, #1a001a);
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  overflow: hidden;
+}
+
+.container {
+  margin-top: 100px;
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 18px;
+  background-color: #ff4d6d;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+button:hover {
+  background-color: #ff1e4d;
+}
+
+#message {
+  margin-top: 30px;
+  font-size: 20px;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 200px;
+}
+
+.heart {
+  position: absolute;
+  color: red;
+  font-size: 20px;
+  animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+  0% { top: -10%; }
+  100% { top: 110%; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Kashu ❤️</h1>
+  <button onclick="startLove()">Click Here</button>
+  <div id="message"></div>
+</div>
+
+<script>
+function startLove() {
+  document.body.style.background = "linear-gradient(to bottom, #33001a, #ff4d6d)";
+  
+  let text = `
+Valentine's Day ke liye ek chhota sa surprise ❤️
+
+Kashu...
+
+Main tujhe 3 looks mein dekha tha,
+aur har baar main bilkul flat ho gaya tha.
+
+Pehli baar... jab tu simple si muskura rahi thi.
+Dusri baar... jab tu thodi si serious thi.
+Teesri baar... jab tu bilkul natural thi...
+aur wahi meri favourite hai ❤️
+
+Ek baar maine Nani ke through tujhe rose bheja tha...
+shayad chhoti si cheez thi,
+par mere liye woh moment bahut bada tha.
+
+Tu sirf meri wife nahi hai...
+tu meri best feeling hai.
+
+Happy Valentine's Day ❤️
+`;
+
+  let i = 0;
+  let speed = 40;
+  let messageBox = document.getElementById("message");
+  messageBox.innerHTML = "";
+
+  function typeWriter() {
+    if (i < text.length) {
+      messageBox.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, speed);
+    }
+  }
+
+  typeWriter();
+
+  createHearts();
+}
+
+function createHearts() {
+  setInterval(() => {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 10 + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 5000);
+  }, 300);
+}
+</script>
+
+</body>
+</html>
